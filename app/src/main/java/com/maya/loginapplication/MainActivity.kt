@@ -236,10 +236,8 @@ fun HeaderDesign(modifier: Modifier = Modifier) {
                 text = stringResource(R.string.language),
                 fontFamily = FontFamily(Font(R.font.cairo_extra_bold_2)),
                 color = RedBM,
-                fontSize = 16.sp
+                fontSize = 16.sp,
             )
-
-
         }
     }
 }
@@ -313,7 +311,7 @@ fun IconsDesign(modifier: Modifier = Modifier) {
             )
             Text(
                 text = stringResource(R.string.security_tips),
-                fontWeight = FontWeight.Bold,
+                fontFamily = localeBasedFont,
                 style = iconTextStyle
 
             )
