@@ -40,6 +40,7 @@ import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextButton
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -189,12 +190,15 @@ fun HeaderDesign(modifier: Modifier=Modifier){
             contentDescription = "Bank Misr Logo",
             modifier=modifier.padding(start=28.dp)
         )
-        Text(
-            text = stringResource(R.string.language),
-            fontFamily = FontFamily(Font(R.font.cairo_extra_bold_2)),
-            color = RedBM,
-            modifier=modifier.padding(end=28.dp)
-        )
+        TextButton(onClick = { /*TODO*/ },
+            modifier=modifier.padding(end=28.dp)) {
+            Text(text = stringResource(R.string.language),
+                fontFamily = FontFamily(Font(R.font.cairo_extra_bold_2)),
+                color = RedBM,
+                fontSize = 16.sp)
+
+
+        }
     }
 }
 
