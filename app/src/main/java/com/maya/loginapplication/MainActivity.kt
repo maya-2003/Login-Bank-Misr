@@ -208,7 +208,7 @@ fun LoginDesign(modifier: Modifier = Modifier) {
         HorizontalDivider(
             color = Color.LightGray,
             thickness = 1.dp,
-            modifier = Modifier.padding(top = 48.dp, start = 16.dp, end = 16.dp)
+            modifier = Modifier.padding(top = 48.dp, start = 28.dp, end = 28.dp)
         )
         IconsDesign()
     }
