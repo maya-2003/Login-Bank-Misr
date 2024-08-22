@@ -72,39 +72,55 @@ fun LoginDesign(modifier: Modifier = Modifier) {
     val arabicFont = FontFamily(Font(R.font.cairo))
     val englishWeight = FontWeight.Medium
     val arabicWeight = FontWeight.Bold
-    val localeBasedFont = if (context.locales[0].language == "ar") arabicFont  else englishFont
-    val localeBasedWeight=if (context.locales[0].language == "ar") arabicWeight else englishWeight
+    val localeBasedFont = if (context.locales[0].language == "ar") arabicFont else englishFont
+    val localeBasedWeight = if (context.locales[0].language == "ar") arabicWeight else englishWeight
 
 
-    Column (verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         HeaderDesign()
         var username by remember { mutableStateOf("") }
         OutlinedTextField(
             value = username,
-            onValueChange = {username=it},
-            label = { Text(stringResource(R.string.username), color = Color.Gray, fontWeight = localeBasedWeight, fontFamily = localeBasedFont) },
-            modifier= modifier
+            onValueChange = { username = it },
+            label = {
+                Text(
+                    stringResource(R.string.username),
+                    color = Color.Gray,
+                    fontWeight = localeBasedWeight,
+                    fontFamily = localeBasedFont
+                )
+            },
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 28.dp, end = 28.dp, top = 40.dp),
             colors = OutlinedTextFieldDefaults.colors(
-               focusedBorderColor = Color.Gray,
+                focusedBorderColor = Color.Gray,
                 unfocusedBorderColor = Color.Gray
             )
         )
 
         var password by remember { mutableStateOf("") }
         var isVisible by remember { mutableStateOf(false) }
-        val icon= if (isVisible)
+        val icon = if (isVisible)
             Icons.Outlined.Visibility
         else
             Icons.Outlined.VisibilityOff
         val customFont = FontFamily(Font(R.font.cairo_bold))
         OutlinedTextField(
             value = password,
-            onValueChange = {password=it},
-            label = { Text(text= stringResource(R.string.password), color = Color.Gray, fontWeight = localeBasedWeight, fontFamily = localeBasedFont) },
-            modifier= modifier
+            onValueChange = { password = it },
+            label = {
+                Text(
+                    text = stringResource(R.string.password),
+                    color = Color.Gray,
+                    fontWeight = localeBasedWeight,
+                    fontFamily = localeBasedFont
+                )
+            },
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 28.dp, end = 28.dp, top = 20.dp),
             colors = OutlinedTextFieldDefaults.colors(
@@ -114,88 +130,112 @@ fun LoginDesign(modifier: Modifier = Modifier) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             trailingIcon = {
                 IconButton(onClick = {
-                    isVisible=!isVisible
+                    isVisible = !isVisible
                 }) {
-                    Icon(imageVector = icon, contentDescription = "Visibility Icon", tint = Color.Gray)
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = "Visibility Icon",
+                        tint = Color.Gray
+                    )
                 }
             },
-            visualTransformation = if(isVisible) VisualTransformation.None
-                    else PasswordVisualTransformation(),
+            visualTransformation = if (isVisible) VisualTransformation.None
+            else PasswordVisualTransformation(),
         )
-        Text(text = stringResource(R.string.forgot_username_password),
+        Text(
+            text = stringResource(R.string.forgot_username_password),
             textDecoration = TextDecoration.Underline,
             fontFamily = localeBasedFont,
             fontWeight = FontWeight.Medium,
             fontSize = 12.sp,
             color = Color.DarkGray,
-            modifier= modifier
+            modifier = modifier
                 .align(alignment = Alignment.Start)
                 .padding(start = 28.dp, top = 20.dp)
         )
 
-        FilledTonalButton(onClick = { /*TODO*/ },
+        FilledTonalButton(
+            onClick = { /*TODO*/ },
             modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 28.dp, end = 28.dp, top = 40.dp)
                 .height(55.dp),
-            colors = if(username.isEmpty() || password.isEmpty()) ButtonDefaults.filledTonalButtonColors(
+            colors = if (username.isEmpty() || password.isEmpty()) ButtonDefaults.filledTonalButtonColors(
                 containerColor = RedBMLight,
-                contentColor = Color.White)
+                contentColor = Color.White
+            )
             else
                 ButtonDefaults.filledTonalButtonColors(
                     containerColor = RedBM,
-                    contentColor = Color.White),
-            shape = RoundedCornerShape(12.dp), ) {
-            Text(text= stringResource(R.string.login),
+                    contentColor = Color.White
+                ),
+            shape = RoundedCornerShape(12.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.login),
                 fontFamily = if (context.locales[0].language == "ar") customFont else
                     englishFont,
                 fontSize = 14.sp,
-                fontWeight = FontWeight.SemiBold)
+                fontWeight = FontWeight.SemiBold
+            )
 
         }
 
-        Row(modifier = modifier
-            .align(Alignment.Start)
-            .padding(start = 28.dp, top = 20.dp)){
-            Text(text = stringResource(R.string.need_help),
+        Row(
+            modifier = modifier
+                .align(Alignment.Start)
+                .padding(start = 28.dp, top = 20.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.need_help),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.DarkGray,
-                modifier=modifier.padding(end = 4.dp),
-                fontFamily = localeBasedFont)
-            Text(text = stringResource(R.string.contact_us),
+                modifier = modifier.padding(end = 4.dp),
+                fontFamily = localeBasedFont
+            )
+            Text(
+                text = stringResource(R.string.contact_us),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 textDecoration = TextDecoration.Underline,
                 fontFamily = localeBasedFont,
-                color = RedBM)
+                color = RedBM
+            )
         }
         HorizontalDivider(
             color = Color.LightGray,
             thickness = 1.dp,
-            modifier = Modifier.padding(top = 48.dp, start = 16.dp, end=16.dp))
+            modifier = Modifier.padding(top = 48.dp, start = 16.dp, end = 16.dp)
+        )
         IconsDesign()
     }
 }
 
 @Composable
-fun HeaderDesign(modifier: Modifier=Modifier){
-    Row(horizontalArrangement = Arrangement.SpaceBetween,
+fun HeaderDesign(modifier: Modifier = Modifier) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .padding(top = 80.dp)) {
+            .padding(top = 80.dp)
+    ) {
         Image(
             painter = painterResource(id = R.drawable.bm_icon),
             contentDescription = "Bank Misr Logo",
-            modifier=modifier.padding(start=28.dp)
+            modifier = modifier.padding(start = 28.dp)
         )
-        TextButton(onClick = { /*TODO*/ },
-            modifier=modifier.padding(end=28.dp)) {
-            Text(text = stringResource(R.string.language),
+        TextButton(
+            onClick = { /*TODO*/ },
+            modifier = modifier.padding(end = 28.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.language),
                 fontFamily = FontFamily(Font(R.font.cairo_extra_bold_2)),
                 color = RedBM,
-                fontSize = 16.sp)
+                fontSize = 16.sp
+            )
 
 
         }
