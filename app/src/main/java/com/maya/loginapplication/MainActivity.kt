@@ -42,6 +42,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -52,6 +53,7 @@ import androidx.compose.ui.unit.sp
 import com.maya.loginapplication.ui.theme.LoginApplicationTheme
 import com.maya.loginapplication.ui.theme.RedBM
 import com.maya.loginapplication.ui.theme.RedBMLight
+import com.maya.loginapplication.ui.theme.iconTextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -271,11 +273,8 @@ fun IconsDesign(modifier: Modifier = Modifier) {
             )
             Text(
                 text = stringResource(R.string.our_products),
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-                color = Color.DarkGray,
                 fontFamily = localeBasedFont,
-                fontWeight = FontWeight.Bold
+                style = iconTextStyle
             )
         }
 
@@ -294,11 +293,8 @@ fun IconsDesign(modifier: Modifier = Modifier) {
             )
             Text(
                 text = stringResource(R.string.excahnge_rate),
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-                color = Color.DarkGray,
                 fontFamily = localeBasedFont,
-                fontWeight = FontWeight.Bold
+                style = iconTextStyle
             )
         }
 
@@ -317,11 +313,8 @@ fun IconsDesign(modifier: Modifier = Modifier) {
             )
             Text(
                 text = stringResource(R.string.security_tips),
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-                color = Color.DarkGray,
-                fontFamily = localeBasedFont,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                style = iconTextStyle
 
             )
         }
@@ -340,11 +333,8 @@ fun IconsDesign(modifier: Modifier = Modifier) {
             )
             Text(
                 text = stringResource(R.string.nearest_branch_or_atm),
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-                color = Color.DarkGray,
                 fontFamily = localeBasedFont,
-                fontWeight = FontWeight.Bold
+                style = iconTextStyle
             )
         }
     }

@@ -1,5 +1,6 @@
 package com.maya.loginapplication.ui.theme
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -36,4 +37,12 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     )
     */
+)
+val iconTextStyle = TextStyle(
+    fontSize = 12.sp,
+    lineHeight = 16.sp,
+    letterSpacing = 0.5.sp,
+    textAlign = TextAlign.Center,
+    color = Color.DarkGray,
+    fontWeight = FontWeight.Bold,
 )
