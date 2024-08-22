@@ -37,9 +37,3 @@ val Typography = Typography(
     )
     */
 )
-//val NeedHelpTextStyle = TextStyle(
-//    textAlign = TextAlign.Center,
-//    color = Color.DarkGray,
-//    fontFamily = localeBasedFont,
-//    fontWeight = FontWeight.Bold
-//)
