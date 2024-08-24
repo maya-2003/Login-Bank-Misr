@@ -38,16 +38,13 @@ import androidx.compose.material.icons.outlined.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.maya.loginapplication.ui.theme.LoginApplicationTheme
@@ -69,13 +66,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LoginDesign(modifier: Modifier = Modifier) {
-    val context = LocalConfiguration.current
+    val config = LocalConfiguration.current
     val englishFont = FontFamily.Default
     val arabicFont = FontFamily(Font(R.font.cairo))
     val englishWeight = FontWeight.Medium
     val arabicWeight = FontWeight.Bold
-    val localeBasedFont = if (context.locales[0].language == "ar") arabicFont else englishFont
-    val localeBasedWeight = if (context.locales[0].language == "ar") arabicWeight else englishWeight
+    val localeBasedFont = if (config.locales[0].language == "ar") arabicFont else englishFont
+    val localeBasedWeight = if (config.locales[0].language == "ar") arabicWeight else englishWeight
 
 
     Column(
@@ -175,7 +172,7 @@ fun LoginDesign(modifier: Modifier = Modifier) {
         ) {
             Text(
                 text = stringResource(R.string.login),
-                fontFamily = if (context.locales[0].language == "ar") customFont else
+                fontFamily = if (config.locales[0].language == "ar") customFont else
                     englishFont,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold
@@ -245,10 +242,10 @@ fun HeaderDesign(modifier: Modifier = Modifier) {
 
 @Composable
 fun IconsDesign(modifier: Modifier = Modifier) {
-    val context = LocalConfiguration.current
+    val config = LocalConfiguration.current
     val englishFont = FontFamily.Default
     val arabicFont = FontFamily(Font(R.font.cairo))
-    val localeBasedFont = if (context.locales[0].language == "ar") arabicFont else englishFont
+    val localeBasedFont = if (config.locales[0].language == "ar") arabicFont else englishFont
 
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
